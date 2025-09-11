@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Exercise Plan Tracker</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            background-color: #ddeeff;
+            padding: 10px;
+            border-left: 5px solid #337ab7;
+        }
+        .day-section {
+            margin-bottom: 40px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .done-status {
+            font-weight: bold;
+            color: green;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .cooldown, .warmup {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Weekly Exercise Tracker</h1>
+<div id="days-container">
+<div class="day-section" id="day1">
+<h2 onclick="toggleDay('day1')" style="cursor: pointer;"><span class="toggle-icon">➖</span> <span class="day-title">🧘‍♀️ Day 1 – Total Body Strength + Mobility <span class="done-status" id="status-day1">❌ Not Done</span></span></h2>
+<div class="day-content" id="content-day1"><h3 onclick="toggleSection('warmup-day1', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Warm-Up</h3><div class="sub-section" id="warmup-day1"><table><tr><th>Done</th><th>Exercise</th></tr><tr><td><input class="day1-checkbox-checkbox" data-key="cb1" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=March+in+place" target="_blank">March in place – 1 min</a></td></tr><tr><td><input class="day1-checkbox-checkbox" data-key="cb2" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Arm+circles" target="_blank">Arm circles – 30 sec each direction</a></td></tr><tr><td><input class="day1-checkbox-checkbox" data-key="cb3" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Seated+cat-cow" target="_blank">Seated cat-cow – 1 min</a></td></tr><tr><td><input class="day1-checkbox-checkbox" data-key="cb4" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Shoulder+rolls" target="_blank">Shoulder rolls – 1 min</a></td></tr><tr><td><input class="day1-checkbox-checkbox" data-key="cb5" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Chair+squats+(slow)" target="_blank">Chair squats (slow) – 1 min</a></td></tr></table></div><h3 onclick="toggleSection('workout-day1', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Workout</h3><div class="sub-section" id="workout-day1"><table>
+<tr><th>Done</th><th>Exercise</th><th>Reps</th></tr>
+<tr><td><input class="day1-checkbox set-check" data-key="cb6" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb7" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb8" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Chair+Squats" target="_blank">Chair Squats</a></td><td><a href="https://www.youtube.com/results?search_query=10" target="_blank">10–12</a></td></tr>
+<tr><td><input class="day1-checkbox set-check" data-key="cb9" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb10" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb11" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Wall+Push-Ups" target="_blank">Wall Push-Ups</a></td><td><a href="https://www.youtube.com/results?search_query=10" target="_blank">10</a></td></tr>
+<tr><td><input class="day1-checkbox set-check" data-key="cb12" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb13" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb14" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Standing+Calf+Raises" target="_blank">Standing Calf Raises</a></td><td><a href="https://www.youtube.com/results?search_query=15" target="_blank">15</a></td></tr>
+<tr><td><input class="day1-checkbox set-check" data-key="cb15" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb16" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb17" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Glute+Bridges+(on+mat)" target="_blank">Glute Bridges (on mat)</a></td><td><a href="https://www.youtube.com/results?search_query=10" target="_blank">10</a></td></tr>
+<tr><td><input class="day1-checkbox set-check" data-key="cb18" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb19" type="checkbox"/> <input class="day1-checkbox set-check" data-key="cb20" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Bird-Dog+(on+knees)" target="_blank">Bird-Dog (on knees)</a></td><td><a href="https://www.youtube.com/results?search_query=5" target="_blank">5–6/side</a></td></tr>
+</table></div><h3 onclick="toggleSection('cooldown-day1', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Cool-Down</h3><div class="sub-section" id="cooldown-day1"><table><tr><th>Done</th><th>Exercise</th></tr><tr><td><input class="day1-checkbox-checkbox" data-key="cb21" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Seated+forward+fold" target="_blank">Seated forward fold</a></td></tr><tr><td><input class="day1-checkbox-checkbox" data-key="cb22" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Side+neck+stretch" target="_blank">Side neck stretch</a></td></tr><tr><td><input class="day1-checkbox-checkbox" data-key="cb23" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Deep+breathing+(5" target="_blank">Deep breathing (5–10 breaths)</a></td></tr></table></div></div></div>
+<div class="day-section" id="day2">
+<h2 onclick="toggleDay('day2')" style="cursor: pointer;"><span class="toggle-icon">➖</span> <span class="day-title">💪 Day 2 – Strength + Core <span class="done-status" id="status-day2">❌ Not Done</span></span></h2>
+<div class="day-content" id="content-day2"><h3 onclick="toggleSection('warmup-day2', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Warm-Up</h3><div class="sub-section" id="warmup-day2"><table><tr><th>Done</th><th>Exercise</th></tr><tr><td><input class="day2-checkbox-checkbox" data-key="cb24" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=March+in+place" target="_blank">March in place – 1 min</a></td></tr><tr><td><input class="day2-checkbox-checkbox" data-key="cb25" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Arm+circles" target="_blank">Arm circles – 30 sec each direction</a></td></tr><tr><td><input class="day2-checkbox-checkbox" data-key="cb26" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Seated+cat-cow" target="_blank">Seated cat-cow – 1 min</a></td></tr><tr><td><input class="day2-checkbox-checkbox" data-key="cb27" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Shoulder+rolls" target="_blank">Shoulder rolls – 1 min</a></td></tr><tr><td><input class="day2-checkbox-checkbox" data-key="cb28" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Chair+squats+(slow)" target="_blank">Chair squats (slow) – 1 min</a></td></tr></table></div><h3 onclick="toggleSection('workout-day2', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Workout</h3><div class="sub-section" id="workout-day2"><table>
+<tr><th>Done</th><th>Exercise</th><th>Reps</th></tr>
+<tr><td><input class="day2-checkbox set-check" data-key="cb29" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb30" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb31" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Step+Taps+to+Step/Low+Stair" target="_blank">Step Taps to Step/Low Stair</a></td><td><a href="https://www.youtube.com/results?search_query=10/leg" target="_blank">10/leg</a></td></tr>
+<tr><td><input class="day2-checkbox set-check" data-key="cb32" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb33" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb34" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Wall+Angels" target="_blank">Wall Angels</a></td><td><a href="https://www.youtube.com/results?search_query=10" target="_blank">10</a></td></tr>
+<tr><td><input class="day2-checkbox set-check" data-key="cb35" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb36" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb37" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Chair+Knee+Raises" target="_blank">Chair Knee Raises</a></td><td><a href="https://www.youtube.com/results?search_query=10" target="_blank">10</a></td></tr>
+<tr><td><input class="day2-checkbox set-check" data-key="cb38" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb39" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb40" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Dead+Bug+(on+back)" target="_blank">Dead Bug (on back)</a></td><td><a href="https://www.youtube.com/results?search_query=5/side" target="_blank">5/side</a></td></tr>
+<tr><td><input class="day2-checkbox set-check" data-key="cb41" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb42" type="checkbox"/> <input class="day2-checkbox set-check" data-key="cb43" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Heel+Slides+(on+back)" target="_blank">Heel Slides (on back)</a></td><td><a href="https://www.youtube.com/results?search_query=10/leg" target="_blank">10/leg</a></td></tr>
+</table></div><h3 onclick="toggleSection('cooldown-day2', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Cool-Down</h3><div class="sub-section" id="cooldown-day2"><table><tr><th>Done</th><th>Exercise</th></tr><tr><td><input class="day2-checkbox-checkbox" data-key="cb44" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Seated+forward+fold" target="_blank">Seated forward fold</a></td></tr><tr><td><input class="day2-checkbox-checkbox" data-key="cb45" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Side+neck+stretch" target="_blank">Side neck stretch</a></td></tr><tr><td><input class="day2-checkbox-checkbox" data-key="cb46" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Deep+breathing+(5" target="_blank">Deep breathing (5–10 breaths)</a></td></tr></table></div></div></div>
+<div class="day-section" id="day3">
+<h2 onclick="toggleDay('day3')" style="cursor: pointer;"><span class="toggle-icon">➖</span> <span class="day-title">🧘‍♂️ Day 5 – Strength + Balance <span class="done-status" id="status-day3">❌ Not Done</span></span></h2>
+<div class="day-content" id="content-day3"><h3 onclick="toggleSection('warmup-day3', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Warm-Up</h3><div class="sub-section" id="warmup-day3"><table><tr><th>Done</th><th>Exercise</th></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb47" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=March+in+place" target="_blank">March in place – 1 min</a></td></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb48" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Arm+circles" target="_blank">Arm circles – 30 sec each direction</a></td></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb49" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Seated+cat-cow" target="_blank">Seated cat-cow – 1 min</a></td></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb50" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Shoulder+rolls" target="_blank">Shoulder rolls – 1 min</a></td></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb51" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Chair+squats+(slow)" target="_blank">Chair squats (slow) – 1 min</a></td></tr></table></div><h3 onclick="toggleSection('workout-day3', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Workout</h3><div class="sub-section" id="workout-day3"><table>
+<tr><th>Done</th><th>Exercise</th><th>Reps</th></tr>
+<tr><td><input class="day3-checkbox set-check" data-key="cb52" type="checkbox"/> <input class="day3-checkbox set-check" data-key="cb53" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Single-Leg+Stand+(support+wall)" target="_blank">Single-Leg Stand (support wall)</a></td><td><a href="https://www.youtube.com/results?search_query=15" target="_blank">15–20 sec/leg</a></td></tr>
+<tr><td><input class="day3-checkbox set-check" data-key="cb54" type="checkbox"/> <input class="day3-checkbox set-check" data-key="cb55" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Wall+Sit+(half+squat)" target="_blank">Wall Sit (half squat)</a></td><td><a href="https://www.youtube.com/results?search_query=15" target="_blank">15–30 sec</a></td></tr>
+<tr><td><input class="day3-checkbox set-check" data-key="cb56" type="checkbox"/> <input class="day3-checkbox set-check" data-key="cb57" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Toe+Taps+Forward/Side" target="_blank">Toe Taps Forward/Side</a></td><td><a href="https://www.youtube.com/results?search_query=10/side" target="_blank">10/side</a></td></tr>
+<tr><td><input class="day3-checkbox set-check" data-key="cb58" type="checkbox"/> <input class="day3-checkbox set-check" data-key="cb59" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Modified+Plank+on+Wall+or+Table" target="_blank">Modified Plank on Wall or Table</a></td><td><a href="https://www.youtube.com/results?search_query=10" target="_blank">10–20 sec</a></td></tr>
+<tr><td><input class="day3-checkbox set-check" data-key="cb60" type="checkbox"/> <input class="day3-checkbox set-check" data-key="cb61" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=March+in+Place+(arms+up)" target="_blank">March in Place (arms up)</a></td><td><a href="https://www.youtube.com/results?search_query=30+sec" target="_blank">30 sec</a></td></tr>
+</table></div><h3 onclick="toggleSection('cooldown-day3', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Cool-Down</h3><div class="sub-section" id="cooldown-day3"><table><tr><th>Done</th><th>Exercise</th></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb62" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Seated+forward+fold" target="_blank">Seated forward fold</a></td></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb63" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Side+neck+stretch" target="_blank">Side neck stretch</a></td></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb64" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Deep+breathing+(5" target="_blank">Deep breathing (5–10 breaths)</a></td></tr></table></div></div></div>
+</div>
+<button onclick="resetAll()">🔁 Reset Week</button>
+<script>
+function toggleDay(dayNum) {
+    const el = document.getElementById('content-' + dayNum);
+    const header = document.querySelector('#' + dayNum + ' h2');
+    const icon = header.querySelector('.toggle-icon');
+    if (el.style.display === 'none') {
+        el.style.display = 'block';
+        icon.textContent = '➖';
+    } else {
+        el.style.display = 'none';
+        icon.textContent = '➕';
+    }
+}
+</script><script></script><script>
+function updateStatus() {
+    const daySections = document.querySelectorAll('.day-section');
+    daySections.forEach((section, idx) => {
+        const checkboxes = section.querySelectorAll('input[type="checkbox"]');
+        const sets = section.querySelectorAll('.set-check');
+        const setsPerExercise = [];
+        let current = 0;
+        sets.forEach((box, i) => {
+            current++;
+            if (i === sets.length - 1 || sets[i+1].offsetTop !== box.offsetTop) {
+                setsPerExercise.push(current);
+                current = 0;
+            }
+        });
+
+        let allFilled = true;
+        let partialSetOK = true;
+
+        // Validate non-set checkboxes
+        checkboxes.forEach(cb => {
+            if (!cb.classList.contains('set-check') && !cb.checked) {
+                allFilled = false;
+            }
+        });
+
+        // Validate 2+ sets per exercise
+        let exerciseStart = 0;
+        setsPerExercise.forEach(count => {
+            let checked = 0;
+            for (let i = 0; i < count; i++) {
+                if (sets[exerciseStart + i].checked) checked++;
+            }
+            if (checked < 2) partialSetOK = false;
+            exerciseStart += count;
+        });
+
+        const status = document.getElementById(`status-day${idx+1}`);
+        if (allFilled && partialSetOK) {
+            status.textContent = '✅ Done';
+        } else {
+            status.textContent = '❌ Not Done';
+        }
+    });
+
+    // Save all checkbox states
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        if (cb.dataset.key) {
+            localStorage.setItem(cb.dataset.key, cb.checked ? "1" : "0");
+        }
+    });
+}
+
+document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', updateStatus);
+    if (cb.dataset.key) {
+        cb.checked = localStorage.getItem(cb.dataset.key) === "1";
+    }
+});
+
+function resetAll() {
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+        if (cb.dataset.key) {
+            localStorage.removeItem(cb.dataset.key);
+        }
+    });
+    updateStatus();
+}
+
+// Re-run status update on page load to reflect saved state
+updateStatus();
+</script>
+<script>
+function toggleSection(id, header) {
+    const el = document.getElementById(id);
+    const icon = header.querySelector('.toggle-icon');
+    if (el.style.display === 'none') {
+        el.style.display = 'block';
+        icon.textContent = '➖';
+    } else {
+        el.style.display = 'none';
+        icon.textContent = '➕';
+    }
+}
+</script></body>
+</html>
