@@ -55,10 +55,33 @@
             margin-top: 10px;
             padding-left: 20px;
         }
-    </style>
-</head>
+    
+        body {
+            font-size: 16px;
+        }
+        table {
+            font-size: 14px;
+            overflow-x: auto;
+            display: block;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        h3 {
+            font-size: 18px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+        }
+</style>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/></head>
 <body>
-<h1>Weekly Exercise Tracker</h1>
+<h1>Home Workout for Gra</h1><button onclick="resetAll()">🔁 Reset Week</button>
 <div id="days-container">
 <div class="day-section" id="day1">
 <h2 onclick="toggleDay('day1')" style="cursor: pointer;"><span class="toggle-icon">➖</span> <span class="day-title">🧘‍♀️ Day 1 – Total Body Strength + Mobility <span class="done-status" id="status-day1">❌ Not Done</span></span></h2>
@@ -91,7 +114,6 @@
 <tr><td><input class="day3-checkbox set-check" data-key="cb60" type="checkbox"/> <input class="day3-checkbox set-check" data-key="cb61" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=March+in+Place+(arms+up)" target="_blank">March in Place (arms up)</a></td><td><a href="https://www.youtube.com/results?search_query=30+sec" target="_blank">30 sec</a></td></tr>
 </table></div><h3 onclick="toggleSection('cooldown-day3', this)" style="cursor: pointer;"><span class="toggle-icon">➖</span> Cool-Down</h3><div class="sub-section" id="cooldown-day3"><table><tr><th>Done</th><th>Exercise</th></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb62" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Seated+forward+fold" target="_blank">Seated forward fold</a></td></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb63" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Side+neck+stretch" target="_blank">Side neck stretch</a></td></tr><tr><td><input class="day3-checkbox-checkbox" data-key="cb64" type="checkbox"/></td><td><a href="https://www.youtube.com/results?search_query=Deep+breathing+(5" target="_blank">Deep breathing (5–10 breaths)</a></td></tr></table></div></div></div>
 </div>
-<button onclick="resetAll()">🔁 Reset Week</button>
 <script>
 function toggleDay(dayNum) {
     const el = document.getElementById('content-' + dayNum);
